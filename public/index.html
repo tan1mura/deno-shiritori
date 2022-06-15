@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>しりとり</title>
-    <link rel="stylesheet" href="./header.css" />
-    <link rel="stylesheet" href="./style.css">
-    <link delay href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>しりとり</title>
+  <link rel="stylesheet" href="./header.css" />
+  <link rel="stylesheet" href="./style.css">
+  <link delay href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
-  <body>
-    <div class="navigation">
-      <ul>
-        <li class="list active">
-          <a href="#">
-            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-            <span class="title">ホーム</span>
+
+<body>
+  <div class="navigation">
+    <ul>
+      <li class="list active">
+        <a href="#">
+          <span class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </span>
+          <span class="title">ホーム</span>
           </a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="container w-75">
-        <h1 class="text-center text-info my-4">しりとり</h1>
-        <form id="form" name="sampleform" class="mb-4">
-          <div class="form1">
-            <input type="text" id="input" class="form-control" placeholder="次の言葉を入力" autocomplete="off">
-            <input type="button" value="リセット" class="btn btn-primary w-auto mt-2" onclick="window.location.reload()">
+          </li>
+          </ul>
           </div>
-        </form>
-        <ul class="list-group text-secondary" id="ul"></ul>
-    </div>
 
-    <script src="./index.js"></script>
+  <div class="container w-75">
+    <h1 class="text-center text-info my-4">しりとり</h1>
+    <form id="form" name="sampleform" class="mb-4">
+      <div class="form1">
+        <input type="text" id="input" class="form-control" placeholder="次の言葉を入力" autocomplete="off">
+        <input type="button" value="リセット" class="btn btn-primary w-auto mt-2" onclick="window.location.reload()">
+      </div>
+    </form>
+    <ul class="list-group text-secondary" id="ul"></ul>
+  </div>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script>
-      const list = document.querySelectorAll(".list");
-      console.log(list);
-      function activeLink() {
-        list.forEach((item) =>
-          // console.log(item);
-          item.classList.remove("active")
-        );
-        this.classList.add("active");
-      }
+  <script src="./index.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    console.log("created by 119311 @https://github.com/119311 ©2022");
+  </script>
+  <script>
+    const list = document.querySelectorAll(".list");
+    console.log(list);
+    function activeLink() {
+      list.forEach((item) =>
+        // console.log(item);
+        item.classList.remove("active")
+      );
+      this.classList.add("active");
+    }
 
       list.forEach((item) => {
         item.addEventListener("click", activeLink);
       });
     </script>
 
-    <script src="./anime.min.js"></script>
-    <script>
-      const container = document.querySelector(".container");
-      for(var i = 0; i <= 50; i++){
+  <script src="./anime.min.js"></script>
+  <script>st container = document.querySelector(".container");
+        for (var i = 0; i <= 50; i++) {
         const blocks = document.createElement("div");
         blocks.classList.add("block");
         container.appendChild(blocks);
       }
-      function animateBlocks(){
+        function animateBlocks() {
         anime({
           targets: ".block",
-          translateX: function(){
+          translateX: function () {
             return anime.random(-800, 1500);
           },
-          translateY: function(){
+          translateY: function () {
             return anime.random(-500, 500);
           },
-          scale: function(){
+          scale: function () {
             return anime.random(1, 3);
           },
           duration: 2500,
@@ -82,5 +86,6 @@
 
       animateBlocks();
     </script>
-  </body>
+</body>
+
 </html>

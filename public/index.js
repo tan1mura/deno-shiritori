@@ -20,6 +20,7 @@ form.addEventListener("submit", function (event) {
   }
   input.value = "";
 });
+
 function add() { //下に履歴を書く
   const li = document.createElement("li");
   li.innerText = input.value;

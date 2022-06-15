@@ -1,8 +1,29 @@
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 const ul = document.getElementById("ul");
-
 let beforeword = "しりとり";
+
+$.ajax({
+  type: "GET",
+  url: "./test.json", // ファイルパス（相対パス）
+  dataType: "json", // ファイル形式
+  async: false, // 非同期通信フラグ
+}).then(
+  function (json) {
+    // 読み込み成功時の処理
+    console.log("読み込みに成功しました");
+    json.forEach(function (data) {
+      let data_stringify = JSON.stringify(data);
+      let data_json = JSON.parse(data_stringify);
+      //jsonデータから各データを取得
+    });
+  },
+  function () {
+    // 読み込み失敗時の処理
+    console.log("読み込みに失敗しました");
+  },
+);
+// console.log(jsonData);
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -17,6 +38,7 @@ form.addEventListener("submit", function (event) {
   }
   if (input.value.slice(-1) === "ん") {
     alert("君の負け");
+    window.location.reload();
   }
   input.value = "";
 });

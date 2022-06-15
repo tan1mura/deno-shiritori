@@ -1,28 +1,10 @@
 import { serve } from "https://deno.land/std@0.138.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.138.0/http/file_server.ts";
-
-console.log("Listening on http://localhost:8000");
-const previousWord = "しりとり";
+console.log("created by 119311 @https://github.com/119311 ©2022");
+// deno-lint-ignore require-await
 serve(async (req) => {
   const pathname = new URL(req.url).pathname;
-  if (req.method === "GET" && pathname === "/shiritori") {
-    return new Response(previousWord);
-  }
-  if (req.method === "POST" && pathname === "/shiritori") {
-    const requestJson = await req.json();
-    const nextWord = requestJson.nextWord;
-    if (
-      nextWord.length > 0 &&
-      previousWord.charAt(previousWord.length - 1) !== nextWord.charAt(0)
-    ) {
-      return new Response("前の単語に続いていません。", { status: 400 });
-    }
-    if(nextWord.slice(-1) === "ん"){
-      return new Response("君の負け", { status: 400});
-    }
-    previousWord = nextWord;
-    return new Response(previousWord);
-  }
+  console.log(pathname);
   return serveDir(req, {
     fsRoot: "public",
     urlRoot: "",

@@ -1,23 +1,86 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body class="bg-light">
-    <canvas id="canvas"></canvas>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>しりとり</title>
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./style.css">
+    <link delay href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="#">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">ホーム</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <div class="container w-75">
-        <h1 class="text-center" text-info my-4>しりとり</h1>
-        <form id="form" class="mb-4">
+        <h1 class="text-center text-info my-4">しりとり</h1>
+        <form id="form" name="sampleform" class="mb-4">
+          <div class="form1">
             <input type="text" id="input" class="form-control" placeholder="次の言葉を入力" autocomplete="off">
+            <input type="button" value="リセット" class="btn btn-primary w-auto mt-2" onclick="window.location.reload()">
+          </div>
         </form>
         <ul class="list-group text-secondary" id="ul"></ul>
     </div>
+
     <script src="./index.js"></script>
-    
-</body>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script>
+      const list = document.querySelectorAll(".list");
+      console.log(list);
+      function activeLink() {
+        list.forEach((item) =>
+          // console.log(item);
+          item.classList.remove("active")
+        );
+        this.classList.add("active");
+      }
+
+      list.forEach((item) => {
+        item.addEventListener("click", activeLink);
+      });
+    </script>
+
+    <script src="./anime.min.js"></script>
+    <script>
+      const container = document.querySelector(".container");
+      for(var i = 0; i <= 50; i++){
+        const blocks = document.createElement("div");
+        blocks.classList.add("block");
+        container.appendChild(blocks);
+      }
+      function animateBlocks(){
+        anime({
+          targets: ".block",
+          translateX: function(){
+            return anime.random(-800, 1500);
+          },
+          translateY: function(){
+            return anime.random(-500, 500);
+          },
+          scale: function(){
+            return anime.random(1, 3);
+          },
+          duration: 2500,
+          delay: anime.stagger(15),
+          complete: animateBlocks,
+        });
+      }
+
+      animateBlocks();
+    </script>
+  </body>
 </html>

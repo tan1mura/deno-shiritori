@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style.css">
   <link delay href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  </head>
+</head>
 
 <body>
   <div class="navigation">
@@ -21,10 +21,10 @@
             <ion-icon name="home-outline"></ion-icon>
           </span>
           <span class="title">ホーム</span>
-          </a>
-          </li>
-          </ul>
-          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
 
   <div class="container w-75">
     <h1 class="text-center text-info my-4">しりとり</h1>
@@ -46,7 +46,8 @@
   <script>
     const list = document.querySelectorAll(".list");
     console.log(list);
-    function activeLink() {
+    function activeLink()
+    {
       list.forEach((item) =>
         // console.log(item);
         item.classList.remove("active")
@@ -54,38 +55,45 @@
       this.classList.add("active");
     }
 
-      list.forEach((item) => {
-        item.addEventListener("click", activeLink);
-      });
-    </script>
+    list.forEach((item) =>
+    {
+      item.addEventListener("click", activeLink);
+    });
+  </script>
 
   <script src="./anime.min.js"></script>
-  <script>st container = document.querySelector(".container");
-        for (var i = 0; i <= 50; i++) {
-        const blocks = document.createElement("div");
-        blocks.classList.add("block");
-        container.appendChild(blocks);
-      }
-        function animateBlocks() {
-        anime({
-          targets: ".block",
-          translateX: function () {
-            return anime.random(-800, 1500);
-          },
-          translateY: function () {
-            return anime.random(-500, 500);
-          },
-          scale: function () {
-            return anime.random(1, 3);
-          },
-          duration: 2500,
-          delay: anime.stagger(15),
-          complete: animateBlocks,
-        });
-      }
+  <script>
+    container = document.querySelector(".container");
+    for (var i = 0; i <= 50; i++)
+    {
+      const blocks = document.createElement("div");
+      blocks.classList.add("block");
+      container.appendChild(blocks);
+    }
+    function animateBlocks()
+    {
+      anime({
+        targets: ".block",
+        translateX: function ()
+        {
+          return anime.random(-800, 1500);
+        },
+        translateY: function ()
+        {
+          return anime.random(-500, 500);
+        },
+        scale: function ()
+        {
+          return anime.random(1, 3);
+        },
+        duration: 2500,
+        delay: anime.stagger(15),
+        complete: animateBlocks,
+      });
+    }
 
-      animateBlocks();
-    </script>
+    animateBlocks();
+  </script>
 </body>
 
 </html>
